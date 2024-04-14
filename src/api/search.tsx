@@ -5,9 +5,8 @@ export async function SearchTranscript(queryParams:{transcript_id: string, filen
             queryParams
         );
   
-        console.log(`http://localhost:8000/search?${queryParams2.toString()}`)
 
-        const res = await fetch(`http://localhost:8000/search?${queryParams2.toString()}`,{
+        const res = await fetch(`${process.env.BACKEND_URL}/search?${queryParams2.toString()}`,{
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json'
