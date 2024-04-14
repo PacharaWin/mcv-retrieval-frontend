@@ -3,6 +3,7 @@ import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
+import SearchPage from './SearchPage';
 
 interface TabPanelProps {
   children?: React.ReactNode;
@@ -37,7 +38,7 @@ function a11yProps(index: number) {
   };
 }
 
-export default function BasicTabs() {
+export default function MyTabBar() {
   const [value, setValue] = React.useState(0);
 
   const handleChange = (event: React.SyntheticEvent, newValue: number) => {
@@ -49,16 +50,19 @@ export default function BasicTabs() {
       <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
         <Tabs value={value} onChange={handleChange} aria-label="basic tabs example">
           <Tab label="Transcript" {...a11yProps(0)} />
-          <Tab label="Search" {...a11yProps(1)} />
+          <Tab label="Playlist" {...a11yProps(1)} />
+          <Tab label="Search" {...a11yProps(2)} />
         </Tabs>
       </Box>
       <CustomTabPanel value={value} index={0}>
-        Transcript
+        {/* <TranscriptPage /> */}
       </CustomTabPanel>
       <CustomTabPanel value={value} index={1}>
-        Search
+        Playlist
       </CustomTabPanel>
-
+      <CustomTabPanel value={value} index={2}>
+        <SearchPage />
+      </CustomTabPanel>
     </Box>
   );
 }
