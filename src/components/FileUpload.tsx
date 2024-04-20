@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
-import { Button, CircularProgress, Snackbar, Alert } from '@mui/material';
+import { Button, CircularProgress, Snackbar, Alert, Box } from '@mui/material';
+import CustomAppBar from "./AppBar";
+
 
 const FileUpload: React.FC = () => {
     const [file, setFile] = useState<File | null>(null);
@@ -43,8 +45,13 @@ const FileUpload: React.FC = () => {
         }
     };
 
+
     return (
         <div>
+            <Box>
+                <CustomAppBar />
+            </Box>
+            <h1>VTT File Upload for embedding</h1>
             <input type="file" onChange={handleFileChange} />
             <Button
                 variant="contained"
