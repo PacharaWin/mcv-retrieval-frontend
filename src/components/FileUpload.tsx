@@ -119,14 +119,19 @@ const FileUpload: React.FC = () => {
 
         const formData = new FormData();
         formData.append('file', file);
-        formData.append('id', id);
-        formData.append('filename', filename);
+        // formData.append('id', id);
+        // formData.append('filename', filename);
         // console.log('left');
         // console.log(typeof formData);
 
         try {
-            // const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/embed`, {
-            const response = await fetch('api/upload', {
+            const searchParams = new URLSearchParams({
+                'id':id,
+                'filename':filename,
+            });
+
+            const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/embed?` + searchParams, {
+            // const response = await fetch('api/upload', {
                 method: 'POST',
                 body: formData,
             });
