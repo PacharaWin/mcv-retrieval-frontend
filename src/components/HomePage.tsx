@@ -27,13 +27,6 @@ export default function Home() {
                     <MyTabBar player={player} />
                 </Grid>
             </Grid>
-            <Button variant="contained" color="primary" onClick={
-                () => {
-                    console.log(player);
-                    player.seekTo(1800);
-                }
-            
-            }>Jump to 30 minutes</Button>
         </Box>
     );
 }
