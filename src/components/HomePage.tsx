@@ -1,10 +1,14 @@
-import { AppBar, Box, Typography } from "@mui/material";
+import { Box  } from "@mui/material";
 import CustomAppBar from "./AppBar";
 import { Grid } from "@mui/material";
 import MyTabBar from "./TabBar";
 import VideoPlayer from "./VideoPlayer";
+import { useState } from "react";
 
 export default function Home() {
+
+    //State
+    const [player, setPlayer]:any = useState(null);
     return (
         <Box>
             <CustomAppBar />
@@ -15,6 +19,7 @@ export default function Home() {
                     videoId="b0tmxvX5YNg"
                     videoName="1/2566 CEM II - 7 Aug 2023 - L01 Part I Signals"
                     uploader="Punnarai Siricharoen"
+                    setPlayer={setPlayer}
                     />
                 </Grid>
                 <Grid item xs={4} style={{ width: 400 }}>
