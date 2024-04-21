@@ -16,10 +16,10 @@ const VideoPlayer: React.FC<VideoPlayerProps> = ({ videoId,videoName,uploader,se
             autoplay: 1,
         },
     }
-    var player:any = null;
 
     const _onReady = (event:any) => {
-        player = event.target;
+        const player = event.target;
+        console.log(player);
         setPlayer(player);
         
     }

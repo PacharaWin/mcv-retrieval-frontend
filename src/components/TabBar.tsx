@@ -38,9 +38,9 @@ function a11yProps(index: number) {
   };
 }
 
-export default function MyTabBar(player:any) {
+export default function MyTabBar(inputprop:any) {
   const [value, setValue] = React.useState(0);
-
+  const player = inputprop.player;
   const handleChange = (event: React.SyntheticEvent, newValue: number) => {
     setValue(newValue);
   };

@@ -32,11 +32,11 @@ const SearchPage: React.FC<SearchPageProps> = ({player}) => {
     };
 
     function handleResultCardClick(start_time: string) {
-        console.log(player)
         if (!player) {
             return;
         }
-        const myArray = start_time.split(':');
+        const trunc_time = start_time.split(' ')[1].substring(0,8);
+        const myArray = trunc_time.split(':');
         const seconds = (+myArray[0]) * 3600 + (+myArray[1]) * 60 + (+myArray[2]);
         player.seekTo(seconds);
     }
@@ -55,14 +55,14 @@ const SearchPage: React.FC<SearchPageProps> = ({player}) => {
 
             <div>
                 {transcript.map((item: {start_time:string,stop_time:string, text:string}, index: number) => (
-                    // <div onClick={() => handleResultCardClick(item.start_time)}>
+                    <div onClick={() => handleResultCardClick(item.start_time)} key={index}>
                         <SearchResultCard 
                             key={index} 
                             start_time={item.start_time} 
                             stop_time={item.stop_time} 
                             text={item.text} 
                         />
-                    // </div>
+                    </div>
                 ))}
             </div>
         </div>

@@ -1,4 +1,4 @@
-import { Box  } from "@mui/material";
+import { Box, Button  } from "@mui/material";
 import CustomAppBar from "./AppBar";
 import { Grid } from "@mui/material";
 import MyTabBar from "./TabBar";
@@ -8,7 +8,7 @@ import { useState } from "react";
 export default function Home() {
 
     //State
-    const [player, setPlayer]:any = useState(null);
+    const [player, setPlayer]:any = useState({});
     return (
         <Box>
             <CustomAppBar />
@@ -27,6 +27,13 @@ export default function Home() {
                     <MyTabBar player={player} />
                 </Grid>
             </Grid>
+            <Button variant="contained" color="primary" onClick={
+                () => {
+                    console.log(player);
+                    player.seekTo(1800);
+                }
+            
+            }>Jump to 30 minutes</Button>
         </Box>
     );
 }
