@@ -3,7 +3,11 @@ import { TextField, Button } from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
 import { SearchTranscript } from '@/api/search';
 import SearchResultCard from './SearchResultCard';
-const SearchPage: React.FC = () => {
+
+interface SearchPageProps {
+    player: any;
+}
+const SearchPage: React.FC<SearchPageProps> = ({player}) => {
 
 
     const [transcript, setTranscript] = React.useState([]); 
@@ -25,9 +29,17 @@ const SearchPage: React.FC = () => {
             setTranscript(res);
         }
 
-
-
     };
+
+    function handleResultCardClick(start_time: string) {
+        console.log(player)
+        if (!player) {
+            return;
+        }
+        const myArray = start_time.split(':');
+        const seconds = (+myArray[0]) * 3600 + (+myArray[1]) * 60 + (+myArray[2]);
+        player.seekTo(seconds);
+    }
 
     return (
         <div>
@@ -43,11 +55,16 @@ const SearchPage: React.FC = () => {
 
             <div>
                 {transcript.map((item: {start_time:string,stop_time:string, text:string}, index: number) => (
-                    <SearchResultCard key={index} start_time={item.start_time} stop_time={item.stop_time} text={item.text} />
+                    // <div onClick={() => handleResultCardClick(item.start_time)}>
+                        <SearchResultCard 
+                            key={index} 
+                            start_time={item.start_time} 
+                            stop_time={item.stop_time} 
+                            text={item.text} 
+                        />
+                    // </div>
                 ))}
             </div>
-
-
         </div>
     );
 };

@@ -24,7 +24,7 @@ export default function Home() {
                 </Grid>
                 <Grid item xs={4} style={{ width: 400 }}>
                     {/* Right column content */}
-                    <MyTabBar />
+                    <MyTabBar player={player} />
                 </Grid>
             </Grid>
         </Box>

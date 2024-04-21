@@ -24,7 +24,7 @@ function CustomTabPanel(props: TabPanelProps) {
     >
       {value === index && (
         <Box sx={{ p: 3 }}>
-          <Typography>{children}</Typography>
+          {children}
         </Box>
       )}
     </div>
@@ -38,7 +38,7 @@ function a11yProps(index: number) {
   };
 }
 
-export default function MyTabBar() {
+export default function MyTabBar(player:any) {
   const [value, setValue] = React.useState(0);
 
   const handleChange = (event: React.SyntheticEvent, newValue: number) => {
@@ -61,7 +61,7 @@ export default function MyTabBar() {
         Playlist
       </CustomTabPanel>
       <CustomTabPanel value={value} index={2}>
-        <SearchPage />
+        <SearchPage player = {player}/>
       </CustomTabPanel>
     </Box>
   );
