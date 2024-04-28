@@ -11,10 +11,13 @@ const SearchPage: React.FC<SearchPageProps> = ({player}) => {
 
 
     const [transcript, setTranscript] = React.useState([]); 
+    const [isLoading, setIsLoading] = React.useState(false);
     
     const [query, setQuery] = React.useState(''); // [1
     const handleSearch = async () => {
         // Add your search logic here
+        setIsLoading(true);
+        setTranscript([]);
 
 		const res = await SearchTranscript(
             {
@@ -27,6 +30,7 @@ const SearchPage: React.FC<SearchPageProps> = ({player}) => {
         console.log(res);
         if(res){
             setTranscript(res);
+            setIsLoading(false);
         }
 
     };
@@ -48,11 +52,20 @@ const SearchPage: React.FC<SearchPageProps> = ({player}) => {
                 variant="outlined" 
                 sx={{width:300}} 
                 value={query} 
-                onChange={(e) => setQuery(e.target.value)} />
+                onChange={(e) => setQuery(e.target.value)}
+                onKeyDown={(e) => {
+                    if (e.key === 'Enter') {
+                        handleSearch();
+                    }
+                }}
+            />
             <Button onClick={handleSearch} sx={{height:55,width:55}}>
                 <SearchIcon />
             </Button>
 
+            {
+                isLoading && <div>Loading...</div>
+            }
             <div>
                 {transcript.map((item: {start_time:string,stop_time:string, text:string}, index: number) => (
                     <div onClick={() => handleResultCardClick(item.start_time)} key={index}>
