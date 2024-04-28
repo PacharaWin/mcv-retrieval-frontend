@@ -1,5 +1,5 @@
 import React from 'react';
-import { TextField, Button } from '@mui/material';
+import { TextField, Button, Typography } from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
 import { SearchTranscript } from '@/api/search';
 import SearchResultCard from './SearchResultCard';
@@ -30,9 +30,8 @@ const SearchPage: React.FC<SearchPageProps> = ({player}) => {
         console.log(res);
         if(res){
             setTranscript(res);
-            setIsLoading(false);
         }
-
+        setIsLoading(false);
     };
 
     function handleResultCardClick(start_time: string) {
@@ -64,7 +63,10 @@ const SearchPage: React.FC<SearchPageProps> = ({player}) => {
             </Button>
 
             {
-                isLoading && <div>Loading...</div>
+                isLoading && 
+                <Typography variant='h6'>
+                    Loading...
+                </Typography>
             }
             <div>
                 {transcript.map((item: {start_time:string,stop_time:string, text:string}, index: number) => (
