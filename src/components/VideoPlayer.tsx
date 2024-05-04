@@ -6,14 +6,16 @@ interface VideoPlayerProps {
     videoName: string;
     uploader: string;
     setPlayer: any;
+    start_time?: number;
 }
-const VideoPlayer: React.FC<VideoPlayerProps> = ({ videoId,videoName,uploader,setPlayer }) => {
+const VideoPlayer: React.FC<VideoPlayerProps> = ({ videoId, videoName, uploader, setPlayer, start_time = 0 }) => {
     
     const opts ={
         height: '390',
         width: '640',
         playerVars: {
             autoplay: 1,
+            start: start_time,
         },
     }
 
@@ -21,9 +23,9 @@ const VideoPlayer: React.FC<VideoPlayerProps> = ({ videoId,videoName,uploader,se
         const player = event.target;
         console.log(player);
         setPlayer(player);
-        
     }
 
+    
     return (
         <div>
             <YouTube videoId={videoId} opts={opts} onReady={_onReady}/>

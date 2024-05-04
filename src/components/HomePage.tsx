@@ -20,6 +20,7 @@ export default function Home() {
                     videoName="1/2566 CEM II - 7 Aug 2023 - L01 Part I Signals"
                     uploader="Punnarai Siricharoen"
                     setPlayer={setPlayer}
+                    start_time={0}
                     />
                 </Grid>
                 <Grid item xs={4} style={{ width: 400 }}>
