@@ -11,6 +11,13 @@ import HomePage from "@/components/HomePage";
 
 export default function Home() {
   return (
-    <HomePage />
+    <HomePage 
+      videoId={'b0tmxvX5YNg'}
+      videoName={"1/2566 CEM II - 7 Aug 2023 - L01 Part I Signals"}
+      uploader={"Punnarai Siricharoen"}
+      transcript_id={"1"}
+      filename={"class1"}
+      
+    />
 )
 }

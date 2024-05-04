@@ -21,7 +21,6 @@ const VideoPlayer: React.FC<VideoPlayerProps> = ({ videoId, videoName, uploader,
 
     const _onReady = (event:any) => {
         const player = event.target;
-        console.log(player);
         setPlayer(player);
     }
 

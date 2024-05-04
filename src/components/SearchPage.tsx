@@ -6,8 +6,10 @@ import SearchResultCard from './SearchResultCard';
 
 interface SearchPageProps {
     player: any;
+    transcript_id: string;
+    filename: string;
 }
-const SearchPage: React.FC<SearchPageProps> = ({player}) => {
+const SearchPage: React.FC<SearchPageProps> = ({player,transcript_id,filename}) => {
 
 
     const [transcript, setTranscript] = React.useState([]); 
@@ -21,8 +23,8 @@ const SearchPage: React.FC<SearchPageProps> = ({player}) => {
 
 		const res = await SearchTranscript(
             {
-                transcript_id: '1',
-                filename: 'class1',
+                transcript_id: transcript_id,
+                filename: filename,
                 query: query
             }
         );

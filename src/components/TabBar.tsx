@@ -41,6 +41,8 @@ function a11yProps(index: number) {
 export default function MyTabBar(inputprop:any) {
   const [value, setValue] = React.useState(0);
   const player = inputprop.player;
+  const transcript_id = inputprop.transcript_id;
+  const filename = inputprop.filename;
   const handleChange = (event: React.SyntheticEvent, newValue: number) => {
     setValue(newValue);
   };
@@ -61,7 +63,7 @@ export default function MyTabBar(inputprop:any) {
         Playlist
       </CustomTabPanel>
       <CustomTabPanel value={value} index={2}>
-        <SearchPage player = {player}/>
+        <SearchPage player = {player} transcript_id={transcript_id} filename={filename} />
       </CustomTabPanel>
     </Box>
   );

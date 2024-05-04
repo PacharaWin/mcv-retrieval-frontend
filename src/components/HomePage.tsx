@@ -5,9 +5,10 @@ import MyTabBar from "./TabBar";
 import VideoPlayer from "./VideoPlayer";
 import { useState } from "react";
 
-export default function Home() {
 
+const Home = ({ videoId, videoName, uploader, start_time,transcript_id,filename }: any = {}) => {
     //State
+    
     const [player, setPlayer]:any = useState({});
     return (
         <Box>
@@ -16,18 +17,20 @@ export default function Home() {
                 <Grid item xs={8}>
                     {/* Left column content */}
                     <VideoPlayer 
-                    videoId="b0tmxvX5YNg"
-                    videoName="1/2566 CEM II - 7 Aug 2023 - L01 Part I Signals"
-                    uploader="Punnarai Siricharoen"
+                    videoId={videoId}
+                    videoName={videoName}
+                    uploader={uploader}
                     setPlayer={setPlayer}
-                    start_time={0}
+                    start_time={start_time}
                     />
                 </Grid>
                 <Grid item xs={4} style={{ width: 400 }}>
                     {/* Right column content */}
-                    <MyTabBar player={player} />
+                    <MyTabBar player={player} transcript_id={transcript_id} filename={filename}/>
                 </Grid>
             </Grid>
         </Box>
     );
 }
+
+export default Home;

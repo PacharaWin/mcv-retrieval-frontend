@@ -7,7 +7,7 @@ function YourComponent() {
 
     useEffect(() => {
         async function fetchVideoDetails() {
-            const response = await fetch('/api/videodetail');
+            const response = await fetch('/api/videodetail',);
             const data = await response.json();
             setVideoDetails(data);
         }
