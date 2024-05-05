@@ -11,8 +11,8 @@ interface VideoPlayerProps {
 const VideoPlayer: React.FC<VideoPlayerProps> = ({ videoId, videoName, uploader, setPlayer, start_time = 0 }) => {
     
     const opts ={
-        height: '390',
-        width: '640',
+        height: '470',
+        width: '770',
         playerVars: {
             autoplay: 1,
             start: start_time,

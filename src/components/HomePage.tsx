@@ -24,7 +24,7 @@ const Home = ({ course,videoId, videoName, uploader, start_time,transcript_id,fi
                     start_time={start_time}
                     />
                 </Grid>
-                <Grid item xs={4} style={{ width: 400 }}>
+                <Grid item xs={4} >
                     {/* Right column content */}
                     <MyTabBar player={player} transcript_id={transcript_id} filename={filename} course={course}/>
                 </Grid>
