@@ -6,7 +6,7 @@ import VideoPlayer from "./VideoPlayer";
 import { useState } from "react";
 
 
-const Home = ({ videoId, videoName, uploader, start_time,transcript_id,filename }: any = {}) => {
+const Home = ({ course,videoId, videoName, uploader, start_time,transcript_id,filename }: any = {}) => {
     //State
     
     const [player, setPlayer]:any = useState({});
@@ -26,7 +26,7 @@ const Home = ({ videoId, videoName, uploader, start_time,transcript_id,filename 
                 </Grid>
                 <Grid item xs={4} style={{ width: 400 }}>
                     {/* Right column content */}
-                    <MyTabBar player={player} transcript_id={transcript_id} filename={filename}/>
+                    <MyTabBar player={player} transcript_id={transcript_id} filename={filename} course={course}/>
                 </Grid>
             </Grid>
         </Box>

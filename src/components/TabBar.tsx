@@ -4,6 +4,7 @@ import Tab from '@mui/material/Tab';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import SearchPage from './SearchPage';
+import PlaylistPage from './PlaylistPage';
 
 interface TabPanelProps {
   children?: React.ReactNode;
@@ -43,6 +44,7 @@ export default function MyTabBar(inputprop:any) {
   const player = inputprop.player;
   const transcript_id = inputprop.transcript_id;
   const filename = inputprop.filename;
+  const course = inputprop.course;
   const handleChange = (event: React.SyntheticEvent, newValue: number) => {
     setValue(newValue);
   };
@@ -60,7 +62,7 @@ export default function MyTabBar(inputprop:any) {
         {/* <TranscriptPage /> */}
       </CustomTabPanel>
       <CustomTabPanel value={value} index={1}>
-        Playlist
+        <PlaylistPage course={course}/>
       </CustomTabPanel>
       <CustomTabPanel value={value} index={2}>
         <SearchPage player = {player} transcript_id={transcript_id} filename={filename} />

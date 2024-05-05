@@ -27,7 +27,6 @@ const Lecture = () => {
 
         }
 
-        console.log(course, id);
         fetchVideoDetails(course as string, id as string);
     }, [router.isReady]);
     if (isLoading) {
@@ -38,11 +37,13 @@ const Lecture = () => {
     }
     return (
         <HomePage 
+            course={course}
             videoId={videoId}
             videoName={videoName}
             uploader={uploader}
             transcript_id={transcript_id}
             filename={filename}
+
         />
 
     );
