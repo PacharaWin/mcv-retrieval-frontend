@@ -28,7 +28,7 @@ const Lecture = () => {
         }
 
         fetchVideoDetails(course as string, id as string);
-    }, [router.isReady]);
+    }, [router.isReady, course, id]);
     if (isLoading) {
         return <div>Loading...</div>;
     }
