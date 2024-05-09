@@ -4,6 +4,7 @@ import { Grid } from "@mui/material";
 import MyTabBar from "./TabBar";
 import VideoPlayer from "./VideoPlayer";
 import { useState } from "react";
+import Link from "next/link";
 // import { useNavigate } from "react-router-dom";  // Import useNavigate hook
 
 
@@ -37,11 +38,11 @@ const Home = ({ course,videoId, videoName, uploader, start_time,transcript_id,fi
         </Grid>
             {/* Button at the bottom of the page */}
             <Box sx={{ mt: 2, textAlign: "center" }}> {/* Margin-top for spacing and center alignment */}
-                            <a href="/embed" style={{ textDecoration: "none" }}>
-                        <Button variant="contained" color="primary">
+                <Link href="/embed/" passHref> {/* Use the Link component to specify the route */}
+                    <Button variant="contained" color="primary">
                         Go to /embed
                     </Button>
-                </a>
+                </Link>
             </Box>
     </Box>
     );
