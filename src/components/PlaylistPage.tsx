@@ -16,12 +16,12 @@ const PlaylistPage = ({course}: any) => {
         }
 
         fetchVideoDetails(course);
-    },[]); 
+    },[course]); 
     return (
         <div>
-            {Object.keys(playlist).map((key: string) => {
+            {Object.keys(playlist).map((key: string,index:number) => {
                 return (
-                    <Card sx={{margin:1,padding:2}}>
+                    <Card sx={{margin:1,padding:2}} key={index}>
                         <a href={`/lecture/${course}/${key}`}>
                             <u><Typography color={'primary'}>{JSON.stringify(playlist[key].videoName)}</Typography></u>
                         </a>
