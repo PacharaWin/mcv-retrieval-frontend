@@ -12,7 +12,7 @@ const VideoPlayer: React.FC<VideoPlayerProps> = ({ videoId, videoName, uploader,
     
     const opts ={
         height: '500',
-        width: '95%',
+        width: '100%',
         playerVars: {
             autoplay: 1,
             start: start_time,
